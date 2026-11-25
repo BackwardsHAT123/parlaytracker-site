@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parlay Tracker: follow every leg of your parlay, live</title>
+<meta name="description" content="Parlay Tracker follows the bets you've already placed. Scan the slip and see each leg's score, pace and chance of hitting while the games play. Free for iPhone, iPad and Apple Watch.">
+<link rel="canonical" href="https://parlaytracker.app/">
+<meta name="theme-color" content="#1f4d38">
+<meta name="apple-itunes-app" content="app-id=6817018215">
+<meta property="og:title" content="Parlay Tracker">
+<meta property="og:description" content="Track every leg, live. Win probability, pace and auto-grading for the parlays you've already placed.">
+<meta property="og:image" content="https://parlaytracker.app/assets/og.jpg">
+<meta property="og:url" content="https://parlaytracker.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/BarlowCondensed-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-256.png" alt="" width="34" height="34">Parlay Tracker</a>
+    <nav class="site-nav" aria-label="Site">
+      <a class="nav-optional" href="#features">Features</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 class="display">Every leg of your parlay, live.</h1>
+      <p class="lede">Parlay Tracker follows the bets you've already placed. Scan the slip, and while the games play it shows each leg's score, pace and chance of hitting. Then it grades the ticket for you and keeps an honest record of how you're doing.</p>
+      <div class="get">
+        <a href="https://apps.apple.com/app/id6817018215"><img src="assets/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+        <small>Free for iPhone, iPad and Apple Watch</small>
+      </div>
+    </div>
+
+    <div class="slip-col">
+      <div class="slip" id="slip" data-state="ready" aria-label="Try it: a sample parlay that plays out like a ticket in the app">
+        <div class="slip-face">
+          <div class="slip-head">
+            <div>
+              <div class="slip-title">5-leg parlay</div>
+              <div class="slip-sub">Sunday, sample ticket</div>
+            </div>
+            <div class="slip-money">
+              <div class="slip-pay">$25 <span aria-hidden="true">&#8594;</span><span class="sr">pays</span> $412.50</div>
+              <div class="slip-odds">+1550</div>
+            </div>
+          </div>
+          <ol class="legs" id="legs"></ol>
+          <div class="slip-foot">
+            <div>
+              <div class="foot-label">Chance to cash</div>
+              <div class="foot-value" id="ticket-chance">8%</div>
+            </div>
+            <div class="foot-status" id="ticket-status" aria-live="polite">Pregame</div>
+          </div>
+        </div>
+        <canvas class="fx" id="fx" aria-hidden="true"></canvas>
+      </div>
+      <div class="slip-controls">
+        <button class="btn" id="play" type="button">Play the games</button>
+        <p class="slip-note" id="slip-note">Watch it play out the way a ticket does in the app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section ways" id="features">
+  <div class="wrap two-col">
+    <div class="copy">
+      <h2>Add a bet the way you placed it.</h2>
+      <p class="lede">Got a printed ticket from the counter or a screenshot from a sportsbook app? Scan it. The legs, odds, stake and payout come straight off the slip, and each leg is matched to its game.</p>
+      <dl class="ways-list">
+        <div><dt>Scan a slip</dt><dd>Take a photo, pick a screenshot, or share one straight from Photos. Parlays, round robins, same-game parlays, teasers and player props.</dd></div>
+        <div><dt>Browse games</dt><dd>Tap real lines off this week's games: moneylines, spreads, totals and props.</dd></div>
+        <div><dt>Manual entry</dt><dd>A guided form for anything else, including futures, golf and F1.</dd></div>
+        <div><dt>Parlay Builder</dt><dd>Let it suggest a parlay from this week's actual NFL or college football lines.</dd></div>
+      </dl>
+    </div>
+    <figure class="shot shot-tilt">
+      <img src="assets/shots/newticket.jpg" alt="New Ticket screen with four choices: Browse Games, Manual Entry, Parlay Builder and Scan a Slip" width="660" height="1089" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="section live">
+  <div class="wrap">
+    <h2 class="center-narrow">Know where every leg stands while the games are on.</h2>
+    <div class="live-grid">
+      <figure class="shot">
+        <img src="assets/shots/live.jpg" alt="Live tab: each open ticket as a scorecard with a progress bar and win chance on every leg" width="660" height="1089" loading="lazy">
+        <figcaption><b>Live win probability</b><span>Every leg gets a status and a chance of hitting that moves with the game.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shots/pace.jpg" alt="Leg detail for Over 60.5: projected total 64.6, a win probability chart and a scoring pace chart" width="660" height="1089" loading="lazy">
+        <figcaption><b>On pace or not</b><span>Totals and props show the projected finish against your line, minute by minute.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/shots/lockscreen.jpg" alt="Lock Screen Live Activity showing two parlays: 5 legs to go for $1256.20 and 3 legs to go for $394.27" width="660" height="1089" loading="lazy">
+        <figcaption><b>On your Lock Screen</b><span>Pin a ticket to the Lock Screen and Dynamic Island: legs to go, payout and the leg playing now.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section watch">
+  <div class="wrap two-col">
+    <div class="copy">
+      <h2>On your wrist, too.</h2>
+      <p>The Apple Watch app shows every ticket in play with its chance to win, the legs left, and each leg's live score. Glance at it from the couch, the bar or the stands.</p>
+      <p>There are Home Screen and Lock Screen widgets as well, and Siri can answer "check my tickets".</p>
+    </div>
+    <div class="watch-row" aria-label="Apple Watch screens">
+      <img src="assets/shots/watch-inplay.png" alt="Watch: In Play list of three tickets with payouts and win chances" width="410" height="502" loading="lazy">
+      <img src="assets/shots/watch-ring.png" alt="Watch: a 44% to win ring with 3 legs left, $100 to $394.27" width="410" height="502" loading="lazy">
+      <img src="assets/shots/watch-leg.png" alt="Watch: FSU at Louisville, 14 to 21 in the 3rd, Over 60.5, 51% on track" width="410" height="502" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="section grades">
+  <div class="wrap two-col reverse">
+    <div class="copy">
+      <h2>It grades itself.</h2>
+      <p class="lede">A leg settles the moment it's decided. An over that's already cleared its line is marked a hit right away, without waiting for the final.</p>
+      <p>Pushes come out of the parlay and the payout is re-priced. Anything the scores can't decide gets a simple Hit or Miss button. When a ticket cashes you get confetti, and when it busts it gets torn in half, once.</p>
+    </div>
+    <figure class="shot">
+      <img src="assets/shots/tickets.jpg" alt="Tickets screen: a parlay with stake, to win, expected value and win probability, and a status chip on every leg" width="660" height="1089" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="section numbers">
+  <div class="wrap">
+    <div class="numbers-head">
+      <h2>See how you're really doing.</h2>
+      <p>Profit over time, a settlement calendar, hit rates by sport, book and bet type, and your results against what the odds you took predicted. When a ticket dies, it tells you which leg killed it.</p>
+    </div>
+    <figure class="ipad">
+      <img src="assets/shots/ipad-analysis.jpg" alt="iPad Analysis screen: breakdowns list, a settlement calendar of wins and losses, and a profit line" width="1400" height="862" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="section screens">
+  <div class="wrap">
+    <div class="screens-intro">
+      <h2>More of the app</h2>
+      <p>Swipe or scroll for more.</p>
+    </div>
+    <div class="strip" tabindex="0" aria-label="App screenshots">
+      <figure>
+        <div class="frame"><img src="assets/shots/browse.jpg" alt="Week 5 game browser with moneylines, spreads, totals and props for each game" loading="lazy" width="660" height="1089"></div>
+        <figcaption><b>Browse the week's games</b><span>Moneylines, spreads, totals and props in one list.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="frame"><img src="assets/shots/builder.jpg" alt="Ticket builder with three legs, combined odds +482 and a $582.11 payout" loading="lazy" width="660" height="1089"></div>
+        <figcaption><b>See odds and payout as you build</b><span>Combined price, payout and expected profit.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="frame"><img src="assets/shots/analysis.jpg" alt="Analysis on iPhone: profit over time chart and rolling win rate" loading="lazy" width="660" height="1089"></div>
+        <figcaption><b>Profit over time</b><span>By day, week, month or year, with your rolling win rate.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="frame"><img src="assets/shots/messages.jpg" alt="Messages conversation with a parlay ticket sent as a picture" loading="lazy" width="660" height="1089"></div>
+        <figcaption><b>Send a ticket in Messages</b><span>As a picture, or an animated GIF of it cashing.</span></figcaption>
+      </figure>
+    </div>
+    <figure class="ipad ipad-small">
+      <img src="assets/shots/ipad-command.jpg" alt="iPad Command Center: a live win-probability dial for every open ticket" width="1400" height="862" loading="lazy">
+      <figcaption><b>Command Center on iPad</b><span>A live win-probability dial for every open ticket at once.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section boards">
+  <div class="wrap two-col">
+    <div class="copy">
+      <h2>In a squares pool? Track your board too.</h2>
+      <p>Scan the board, link it to the game, and Parlay Tracker works out each quarter's winning square, overtime rule included, and tells you when one of yours hits. For football boards it also estimates every square's chances from this season, the last few meetings and the weather.</p>
+    </div>
+    <figure class="board">
+      <div class="board-grid" id="board-grid" aria-hidden="true"></div>
+      <figcaption><span>Light squares are yours. Dark squares won a quarter. Gold is one of yours that won.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section privacy">
+  <div class="wrap two-col">
+    <div class="copy">
+      <h2 class="display">Your bets stay yours.</h2>
+      <p>No account, no ads and no analytics. Your tickets are saved on your device and synced only through your own iCloud. <a href="privacy.html">Read the privacy policy</a>.</p>
+    </div>
+    <ul class="facts">
+      <li><b>No sign-up</b><span>Open it and add a bet. There's nothing to log in to.</span></li>
+      <li><b>No tracking</b><span>No analytics, advertising or tracking code of any kind.</span></li>
+      <li><b>Your iCloud, not our server</b><span>Sync runs through your own iCloud account. We have no server that stores your bets.</span></li>
+      <li><b>Slips read on your phone</b><span>Scanning happens on the device. Your photos are never uploaded.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section notebook">
+  <div class="wrap">
+    <h2>A notebook, not a sportsbook.</h2>
+    <p>Parlay Tracker never takes a bet, holds money, or connects to a sportsbook account. It's a record of bets you made somewhere else, so you can follow them and see the real numbers.</p>
+  </div>
+</section>
+
+<section class="section closing">
+  <div class="wrap">
+    <h2 class="display">Track every leg, live.</h2>
+    <div class="get">
+      <a href="https://apps.apple.com/app/id6817018215"><img src="assets/app-store-badge.svg" alt="Download on the App Store" width="162" height="54"></a>
+      <small>Free, with an optional tip jar</small>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Parlay Tracker is for adults who bet legally where they live. It doesn't accept wagers. Win probabilities are estimates, not advice. If betting stops being fun, call or text <a href="tel:+18004262537">1-800-GAMBLER</a>.</p>
+    <nav aria-label="Footer">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy policy</a>
+      <span>© 2026 Parlay Tracker</span>
+    </nav>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>
