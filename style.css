@@ -62,6 +62,9 @@ body {
 }
 
 img, video, svg, canvas { display: block; max-width: 100%; }
+/* Keep each picture's own shape when it is narrowed (its width/height attributes
+   would otherwise pin the height). */
+img { height: auto; }
 a { color: var(--green); text-underline-offset: 0.18em; }
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
